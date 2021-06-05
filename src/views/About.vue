@@ -1,5 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="pa-2">
+    <h1>开发说明，此项目纯属娱乐</h1>
+    <h2>主要记录以下事情</h2>
   </div>
 </template>
