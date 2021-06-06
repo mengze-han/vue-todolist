@@ -33,6 +33,10 @@ export default new Vuex.Store({
     deleteTask(state, index) {
       state.items = state.items.filter((task) => task.index != index);
     },
+    updateItem(state, payload) {
+      let task = state.items.filter((task) => task.index === payload.index)[0];
+      task.msg = payload.msg;
+    },
     snackBarAction(state, text) {
       let timeout = 0;
       if (state.snackbar.show) {
@@ -60,6 +64,10 @@ export default new Vuex.Store({
     deleteTask({ commit }, item) {
       commit("deleteTask", item.index);
       commit("snackBarAction", `Delete Task ${item.msg}`);
+    },
+    updateItem({ commit }, item) {
+      commit("updateItem", item);
+      commit("snackBarAction", `Edit Task ${item.msg}`);
     },
   },
   modules: {},

@@ -8,9 +8,14 @@
     class="pa-3"
     clearable
     outlined
-    @click:append-outer="addTask"
     @keyup.enter="addTask"
-  ></v-text-field>
+  >
+    <template v-slot:append>
+      <v-icon @click="addTask" color="primary" :disabled="newTaskInvaild">
+        mdi-plus</v-icon
+      >
+    </template>
+  </v-text-field>
 </template>
 
 <script>
@@ -20,9 +25,15 @@ export default {
       newTaskMsg: "",
     };
   },
+  computed: {
+    newTaskInvaild() {
+      return !this.newTaskMsg;
+    },
+  },
   methods: {
     addTask() {
-      if (this.newTaskMsg) {
+      if (!this.newTaskInvaild) {
+        this.newTaskMsg;
         this.$store.dispatch("addTask", this.newTaskMsg);
         this.newTaskMsg = "";
       }

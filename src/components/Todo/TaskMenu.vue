@@ -21,6 +21,11 @@
       @close="dialogs.delete = false"
       :item="item"
     />
+    <dialog-edit
+      v-if="dialogs.edit"
+      @close="dialogs.edit = false"
+      :item="item"
+    />
   </div>
 </template>
 
@@ -30,21 +35,20 @@ export default {
   data: () => ({
     dialogs: {
       delete: false,
+      edit: false,
     },
     options: [
       {
         title: "Edit",
         icon: "mdi-pencil",
         click() {
-          console.log("edit");
+          this.dialogs.edit = true;
         },
       },
       {
         title: "Due date",
         icon: "mdi-calendar-range",
-        click() {
-          console.log("Due date");
-        },
+        click() {},
       },
       {
         title: "Delete",
@@ -64,6 +68,7 @@ export default {
   },
   components: {
     "dialog-delete": require("@/components/Todo/Dialog/DialogDelete").default,
+    "dialog-edit": require("@/components/Todo/Dialog/DialogEdit").default,
   },
 };
 </script>
