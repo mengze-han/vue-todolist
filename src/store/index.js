@@ -15,7 +15,7 @@ export default new Vuex.Store({
   mutations: {
     addTask(state, newTaskMsg) {
       let newTaskItem = {
-        index: Date().now,
+        index: Date.now(),
         msg: newTaskMsg,
         done: false,
       };
