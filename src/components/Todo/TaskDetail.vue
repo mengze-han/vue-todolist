@@ -1,16 +1,12 @@
 <template>
   <div>
     <v-list-item
-      @click="$store.commit('doneTask', item.index)"
+      @click="$store.dispatch('doneTask', item)"
       :class="{ blue: item.done }"
     >
-      <template v-slot:default="{ active }">
+      <template v-slot:default>
         <v-list-item-action>
-          <v-checkbox
-            v-model="item.done"
-            :input-value="active"
-            color="primary"
-          ></v-checkbox>
+          <v-checkbox :input-value="item.done" color="primary"></v-checkbox>
         </v-list-item-action>
 
         <v-list-item-content>
@@ -20,16 +16,13 @@
           >
           <v-list-item-subtitle>{{ item.index }}</v-list-item-subtitle>
         </v-list-item-content>
-        <v-list-item-action
-          @click.stop="$store.commit('deleteTask', item.index)"
-        >
+        <v-list-item-action @click.stop="$store.dispatch('deleteTask', item)">
           <v-btn icon>
             <v-icon color="grey lighten-1">mdi-delete</v-icon>
           </v-btn>
         </v-list-item-action>
       </template>
     </v-list-item>
-    <v-divider />
   </div>
 </template>
 

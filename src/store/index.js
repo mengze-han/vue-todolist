@@ -11,6 +11,10 @@ export default new Vuex.Store({
       { index: 2, msg: "去见对方的朋友", done: false },
       { index: 3, msg: "一起看一场电影", done: false },
     ],
+    snackbar: {
+      show: false,
+      text: "",
+    },
   },
   mutations: {
     addTask(state, newTaskMsg) {
@@ -29,7 +33,34 @@ export default new Vuex.Store({
     deleteTask(state, index) {
       state.items = state.items.filter((task) => task.index != index);
     },
+    snackBarAction(state, text) {
+      let timeout = 0;
+      if (state.snackbar.show) {
+        state.snackbar.show = false;
+        timeout = 300;
+      }
+      setTimeout(() => {
+        state.snackbar.show = true;
+        state.snackbar.text = text;
+      }, timeout);
+    },
+    hideSnackBar(state) {
+      state.snackbar.show = false;
+    },
   },
-  actions: {},
+  actions: {
+    addTask({ commit }, newTaskMsg) {
+      commit("addTask", newTaskMsg);
+      commit("snackBarAction", ` add new Task ${newTaskMsg}`);
+    },
+    doneTask({ commit }, item) {
+      commit("doneTask", item.index);
+      commit("snackBarAction", `Task ${item.msg} Done!`);
+    },
+    deleteTask({ commit }, item) {
+      commit("deleteTask", item.index);
+      commit("snackBarAction", `Delete Task ${item.msg}`);
+    },
+  },
   modules: {},
 });

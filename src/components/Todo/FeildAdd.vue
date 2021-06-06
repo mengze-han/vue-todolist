@@ -23,7 +23,7 @@ export default {
   methods: {
     addTask() {
       if (this.newTaskMsg) {
-        this.$store.commit("addTask", this.newTaskMsg);
+        this.$store.dispatch("addTask", this.newTaskMsg);
         this.newTaskMsg = "";
       }
     },

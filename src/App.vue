@@ -57,12 +57,18 @@
 
     <v-main>
       <router-view />
+      <snack-bar />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import SnackBar from "@/components/Shared/SnackBar";
+
 export default {
+  components: {
+    SnackBar,
+  },
   data() {
     return {
       drawer: null,
