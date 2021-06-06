@@ -37,9 +37,9 @@
       </template>
 
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <a target="_blank" :href="projectUrl">
-        <v-app-bar-title>从记忆开始</v-app-bar-title>
-      </a>
+
+      <v-app-bar-title>从记忆开始</v-app-bar-title>
+
       <v-spacer></v-spacer>
 
       <v-btn icon>

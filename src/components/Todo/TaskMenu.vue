@@ -63,7 +63,7 @@ export default {
     },
   },
   components: {
-    "dialog-delete": require("@/components/Dialog/DialogDelete").default,
+    "dialog-delete": require("@/components/Todo/Dialog/DialogDelete").default,
   },
 };
 </script>
