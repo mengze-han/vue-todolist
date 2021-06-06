@@ -16,20 +16,35 @@
           >
           <v-list-item-subtitle>{{ item.index }}</v-list-item-subtitle>
         </v-list-item-content>
-        <v-list-item-action @click.stop="$store.dispatch('deleteTask', item)">
+        <v-list-item-action @click.stop="dialogs.delete = true">
           <v-btn icon>
             <v-icon color="grey lighten-1">mdi-delete</v-icon>
           </v-btn>
         </v-list-item-action>
       </template>
     </v-list-item>
+    <dialog-delete
+      v-if="dialogs.delete"
+      :item="item"
+      @close="dialogs.delete = false"
+    />
   </div>
 </template>
 
 <script>
 export default {
   props: ["item"],
+  data() {
+    return {
+      dialogs: {
+        delete: false,
+      },
+    };
+  },
+  components: {
+    "dialog-delete": require("@/components/Dialog/DialogDelete").default,
+  },
 };
 </script>
 
-<style></style>
+<style lang="sass"></style>
