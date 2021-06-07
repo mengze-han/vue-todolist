@@ -40,7 +40,8 @@
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
         <v-row>
-          <v-app-bar-title class="text-h4 ml-4">从记忆开始</v-app-bar-title>
+          <v-toolbar-title class="text-h4 ml-4">从记忆开始</v-toolbar-title>
+          <!-- <v-app-bar-title class="text-h4 ml-4">从记忆开始</v-app-bar-title> -->
         </v-row>
         <v-row>
           <live-date />
