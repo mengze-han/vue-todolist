@@ -27,7 +27,7 @@
       color="#fcb69f"
       dark
       src="https://picsum.photos/1920/1080?random"
-      @click="drawer = !drawer"
+      prominent
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -36,9 +36,16 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-container>
+        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>从记忆开始</v-app-bar-title>
+        <v-row>
+          <v-app-bar-title class="text-h4 ml-4">从记忆开始</v-app-bar-title>
+        </v-row>
+        <v-row>
+          <live-date />
+        </v-row>
+      </v-container>
 
       <v-spacer></v-spacer>
 
@@ -64,10 +71,12 @@
 
 <script>
 import SnackBar from "@/components/Shared/SnackBar";
+import LiveDate from "@/components/Tools/LiveDate";
 
 export default {
   components: {
     SnackBar,
+    LiveDate,
   },
   data() {
     return {
