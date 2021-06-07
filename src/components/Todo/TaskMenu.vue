@@ -26,6 +26,11 @@
       @close="dialogs.edit = false"
       :item="item"
     />
+    <dialog-date-select
+      v-if="dialogs.dueDate"
+      @close="dialogs.dueDate = false"
+      :item="item"
+    />
   </div>
 </template>
 
@@ -35,6 +40,7 @@ export default {
   data: () => ({
     dialogs: {
       delete: false,
+      dueDate: false,
       edit: false,
     },
     options: [
@@ -48,27 +54,29 @@ export default {
       {
         title: "Due date",
         icon: "mdi-calendar-range",
-        click() {},
+        click() {
+          this.dialogs.dueDate = true;
+        },
       },
       {
         title: "Delete",
         icon: "mdi-delete",
         click() {
           this.dialogs.delete = true;
-          // console.log(111);
         },
       },
     ],
   }),
   methods: {
     choose(index) {
-      console.log(index);
       this.options[index].click.call(this);
     },
   },
   components: {
     "dialog-delete": require("@/components/Todo/Dialog/DialogDelete").default,
     "dialog-edit": require("@/components/Todo/Dialog/DialogEdit").default,
+    "dialog-date-select": require("@/components/Todo/Dialog/DueDateSelect")
+      .default,
   },
 };
 </script>

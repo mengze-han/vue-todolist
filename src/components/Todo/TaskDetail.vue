@@ -15,11 +15,12 @@
         >
         <v-list-item-subtitle>{{ item.index }}</v-list-item-subtitle>
       </v-list-item-content>
+      <v-list-item-action v-if="item.dueDate">
+        <v-list-item-action-text>
+          <v-icon small>mdi-calendar</v-icon>{{ item.dueDate | formatDate }}
+        </v-list-item-action-text>
+      </v-list-item-action>
       <v-list-item-action>
-        <!-- <v-btn icon>
-            <v-icon color="grey lighten-1">mdi-delete</v-icon>
-          </v-btn> -->
-        <!-- <task-menu @close="dialogs.delete = true" /> -->
         <task-menu :item="item" />
       </v-list-item-action>
     </template>
@@ -27,8 +28,19 @@
 </template>
 
 <script>
+import { format } from "date-fns";
 export default {
   props: ["item"],
+  filters: {
+    formatDate(value) {
+      return format(new Date(value), "yyyy/MM/dd");
+    },
+  },
+  // methods: {
+  //   formatDate(value) {
+  //     return format(new Date(value), "yyyy/MM/dd");
+  //   },
+  // },
   components: {
     "task-menu": require("@/components/Todo/TaskMenu").default,
   },
