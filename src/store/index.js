@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     search: null,
+    sorting: false,
     appTitle: process.env.VUE_APP_TITLE,
     items: [
       { index: 0, msg: "做一顿油焖大虾", done: true, dueDate: "2021-6-16" },
@@ -60,6 +61,13 @@ export default new Vuex.Store({
     },
     hideSnackBar(state) {
       state.snackbar.show = false;
+    },
+
+    toggleSorting(state) {
+      state.sorting = !state.sorting;
+    },
+    setTasks(state, items) {
+      state.items = items;
     },
   },
   actions: {

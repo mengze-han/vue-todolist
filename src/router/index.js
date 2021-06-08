@@ -31,9 +31,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(process.env);
   document.title = `${process.env.VUE_APP_TITLE} - ${to.name}`;
-  console.log(to);
   next();
 });
 
