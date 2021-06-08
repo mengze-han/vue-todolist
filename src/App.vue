@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768" app>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6"> 写给小杨 </v-list-item-title>
@@ -11,6 +11,7 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
+        <v-img max-height="200" max-width="250" :src="avatar"></v-img>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -73,7 +74,8 @@ export default {
   },
   data() {
     return {
-      drawer: null,
+      drawer: true,
+      avatar: require("@/assets/me.jpg"),
       items: [
         { title: "meet", icon: "mdi-view-dashboard", to: "/meet" },
         { title: "Photos", icon: "mdi-image", to: "/" },
