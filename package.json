@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "date-fns": "^2.22.1",
+    "localbase": "^0.7.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuedraggable": "^2.24.3",
