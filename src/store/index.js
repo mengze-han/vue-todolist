@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     search: null,
+    appTitle: process.env.VUE_APP_TITLE,
     items: [
       { index: 0, msg: "做一顿油焖大虾", done: true, dueDate: "2021-6-16" },
       { index: 1, msg: "做一顿糖醋小排", done: false, dueDate: "2021-6-17" },

@@ -41,7 +41,9 @@
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
         <v-row>
-          <v-toolbar-title class="text-h4 ml-4">从记忆开始</v-toolbar-title>
+          <v-toolbar-title class="text-h4 ml-4">{{
+            $store.state.appTitle
+          }}</v-toolbar-title>
         </v-row>
         <v-row>
           <live-date />
@@ -74,7 +76,7 @@ export default {
   },
   data() {
     return {
-      drawer: true,
+      drawer: null,
       avatar: require("@/assets/me.jpg"),
       items: [
         { title: "meet", icon: "mdi-view-dashboard", to: "/meet" },
