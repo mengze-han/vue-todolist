@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    search: null,
     items: [
       { index: 0, msg: "做一顿油焖大虾", done: true, dueDate: "2021-6-16" },
       { index: 1, msg: "做一顿糖醋小排", done: false, dueDate: "2021-6-17" },
@@ -42,6 +43,9 @@ export default new Vuex.Store({
       let task = state.items.filter((task) => task.index === payload.index)[0];
       task.dueDate = payload.dueDate;
     },
+    setSearch(state, value) {
+      state.search = value;
+    },
     snackBarAction(state, text) {
       let timeout = 0;
       if (state.snackbar.show) {
@@ -77,6 +81,15 @@ export default new Vuex.Store({
     saveDueDate({ commit }, item) {
       commit("saveDueDate", item);
       commit("snackBarAction", `Edit Task ${item.dueDate}`);
+    },
+  },
+  getters: {
+    taskFiltered(state) {
+      return state.search
+        ? state.items.filter((item) =>
+            item.msg.includes(state.search.toLowerCase())
+          )
+        : state.items;
     },
   },
   modules: {},

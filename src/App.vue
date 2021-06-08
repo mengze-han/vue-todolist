@@ -41,7 +41,6 @@
 
         <v-row>
           <v-toolbar-title class="text-h4 ml-4">从记忆开始</v-toolbar-title>
-          <!-- <v-app-bar-title class="text-h4 ml-4">从记忆开始</v-app-bar-title> -->
         </v-row>
         <v-row>
           <live-date />
@@ -49,18 +48,10 @@
       </v-container>
 
       <v-spacer></v-spacer>
-
-      <v-btn icon>
+      <search />
+      <!-- <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
 
     <v-main>
@@ -73,11 +64,12 @@
 <script>
 import SnackBar from "@/components/Shared/SnackBar";
 import LiveDate from "@/components/Tools/LiveDate";
-
+import Search from "@/components/Tools/Search";
 export default {
   components: {
     SnackBar,
     LiveDate,
+    Search,
   },
   data() {
     return {
