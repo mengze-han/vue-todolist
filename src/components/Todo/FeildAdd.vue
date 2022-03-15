@@ -1,7 +1,7 @@
 <template>
   <v-text-field
     v-model="newTaskMsg"
-    label="写下你想和我一起做的事情"
+    label="写下你想做的事情"
     hide-details
     append-icon="mdi-plus"
     prepend-inner-icon="mdi-robot-love-outline"

@@ -11,8 +11,8 @@ export default new Vuex.Store({
     items: [
       { index: 0, msg: "做一顿油焖大虾", done: true, dueDate: "2021-6-16" },
       { index: 1, msg: "做一顿糖醋小排", done: false, dueDate: "2021-6-17" },
-      { index: 2, msg: "去见对方的朋友", done: false, dueDate: "2021-6-18" },
-      { index: 3, msg: "一起看一场电影", done: false },
+      { index: 2, msg: "做一顿油焖大虾", done: false, dueDate: "2021-6-18" },
+      { index: 3, msg: "做一顿糖醋小排", done: false },
     ],
     snackbar: {
       show: false,

@@ -3,8 +3,8 @@
     <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6"> 写给小杨 </v-list-item-title>
-          <v-list-item-subtitle> yangke.xin </v-list-item-subtitle>
+          <v-list-item-title class="text-h6"> 练手的CRUD </v-list-item-title>
+          <v-list-item-subtitle> 练手的CRUD </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
